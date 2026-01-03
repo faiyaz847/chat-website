@@ -1,6 +1,14 @@
 const socket = io();
 const chat = document.getElementById("chat");
 
+// ALL GIF EMOTES HERE
+const emotes = {
+  ":power:": "gifs/power.gif",
+  ":fire:": "gifs/fire.gif",
+  ":lol:": "gifs/lol.gif",
+  ":cry:": "gifs/cry.gif"
+};
+
 function sendMessage() {
   const username = document.getElementById("username").value || "Guest";
   let message = document.getElementById("message").value;
@@ -12,12 +20,16 @@ function sendMessage() {
 socket.on("chatMessage", (data) => {
   let msg = data.message;
 
-  if (msg.includes(":power:")) {
-    msg = msg.replace(
-      ":power:",
-      `<img src="gifs/power.gif" class="emote">`
-    );
+  // Replace text with GIF emotes
+  for (const code in emotes) {
+    if (msg.includes(code)) {
+      msg = msg.replaceAll(
+        code,
+        `<img src="${emotes[code]}" class="emote">`
+      );
+    }
   }
 
   chat.innerHTML += `<p><b>${data.username}:</b> ${msg}</p>`;
+  chat.scrollTop = chat.scrollHeight;
 });
