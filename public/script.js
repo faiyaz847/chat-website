@@ -5,8 +5,7 @@ const chat = document.getElementById("chat");
 const emotes = {
   ":power:": "gifs/power.gif",
   ":fire:": "gifs/fire.gif",
-  ":lol:": "gifs/lol.gif",
-  ":cry:": "gifs/cry.gif"
+":fight:": "gifs/fight.gif",
 };
 
 function sendMessage() {
@@ -33,3 +32,4 @@ socket.on("chatMessage", (data) => {
   chat.innerHTML += `<p><b>${data.username}:</b> ${msg}</p>`;
   chat.scrollTop = chat.scrollHeight;
 });
+
