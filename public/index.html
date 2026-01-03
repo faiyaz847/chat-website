@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Public Chat</h2>
+
+<input id="username" placeholder="Your name">
+<br><br>
+
+<div id="chat"></div>
+
+<input id="message" placeholder="Type message or :power:">
+<button onclick="sendMessage()">Send</button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+body {
+  background: black;
+  color: white;
+  font-family: Arial;
+}
+
+#chat {
+  height: 300px;
+  border: 1px solid gray;
+  margin: 10px 0;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+img.emote {
+  width: 40px;
+}
